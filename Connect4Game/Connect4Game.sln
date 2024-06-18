@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect4Game", "Connect4Game\Connect4Game.csproj", "{BEE7C474-1349-484B-A626-2DDA2320087D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEE7C474-1349-484B-A626-2DDA2320087D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE7C474-1349-484B-A626-2DDA2320087D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE7C474-1349-484B-A626-2DDA2320087D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE7C474-1349-484B-A626-2DDA2320087D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EDE915E-6424-4BD7-86CD-B5EF24B87B67}
+	EndGlobalSection
+EndGlobal
