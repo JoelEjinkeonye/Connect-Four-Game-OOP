@@ -1,4 +1,4 @@
-﻿// Connect Four Game Project
+// Connect Four Game Project
 
 // 4 Core Classes aside from Main Class Program
 // controller class
@@ -7,6 +7,13 @@
 
 // Make the game playable for 2 human players
 // optional for AI (computer)
+
+
+
+
+
+///// ocpided by Matias
+
 class Program
 {
     static void Main(string[] args)
@@ -14,3 +21,52 @@ class Program
             
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///// ocpided by Joel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///// ocpided by Ali
+
