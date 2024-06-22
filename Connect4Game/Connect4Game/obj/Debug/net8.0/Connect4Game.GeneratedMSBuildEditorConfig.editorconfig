@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Connect4Game
-build_property.ProjectDir = C:\Users\kinga\source\repos\Connect4GameProject\Connect-Four-Game-OOP\Connect4Game\Connect4Game\
+build_property.ProjectDir = c:\Users\matu_\Downloads\Connect-Four-Game-OOP\Connect4Game\Connect4Game\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
