@@ -135,3 +135,28 @@ private bool CheckHorizontalWin(char disk)
 
 ///// ocpided by Ali
 
+public abstract class Player
+{
+    public string Name { get; private set; }
+    public char Disc { get; private set; }
+
+    protected Player(string name, char disc)
+    {
+        Name = name;
+        Disc = disc;
+    }
+
+    public abstract int GetMove();
+}
+
+
+public class HumanPlayer : Player
+{
+    public HumanPlayer(string name, char disc) : base(name, disc) { }
+
+    public override int GetMove()
+    {
+        Console.Write($"{Name}, enter your move (1-7): ");
+        return int.Parse(Console.ReadLine()) - 1;
+    }
+}
