@@ -200,3 +200,10 @@ public class Game
             currentPlayer = currentPlayer == player1 ? player2 : player1;
         }
     }
+
+    public static void Main()
+    {
+        Game game = new Game();
+        game.Play();
+    }
+}
