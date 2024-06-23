@@ -160,3 +160,18 @@ public class HumanPlayer : Player
         return int.Parse(Console.ReadLine()) - 1;
     }
 }
+
+public class Game
+{
+    private Board board;
+    private Player player1;
+    private Player player2;
+    private Player currentPlayer;
+
+    public Game()
+    {
+        board = new Board();
+        player1 = new HumanPlayer("Player 1", 'X');
+        player2 = new HumanPlayer("Player 2", 'O');
+        currentPlayer = player1;
+    }
