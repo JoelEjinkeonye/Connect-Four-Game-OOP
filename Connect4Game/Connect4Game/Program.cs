@@ -175,3 +175,28 @@ public class Game
         player2 = new HumanPlayer("Player 2", 'O');
         currentPlayer = player1;
     }
+
+    
+    public void Play()
+    {
+        while (true)
+        {
+            board.Print();
+            int column = currentPlayer.GetMove();
+
+            if (!board.InsertDisc(column, currentPlayer.Disc))
+            {
+                Console.WriteLine("Column full. Try another column.");
+                continue;
+            }
+
+            if (board.CheckWin(currentPlayer.Disc))
+            {
+                board.Print();
+                Console.WriteLine($"{currentPlayer.Name} wins!");
+                break;
+            }
+
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
+        }
+    }
