@@ -14,14 +14,79 @@
 
 ///// ocpided by Matias
 
-class Program
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+public class Board
 {
-    static void Main(string[] args)
+    private char[,] grid;
+    private const int Rows = 6;
+    private const int Columns = 7;
+    private const char EmptyCell = '#';
+
+    public Board()
     {
-            
+        grid = new char[Rows, Columns];
+        for (int i = 0; i < Rows; i++)
+        {
+            for (int j = 0; j < Columns; j++)
+            {
+                grid[i,j] = EmptyCell;           }
+        }
     }
+
 }
 
+public bool InsertDisc(int column, char disc)
+{
+    if (column < 0 || column >= Columns)
+        throw new ArgumentOutOfRangeException(nameof(column));
+
+    for (int row = Rows - 1; row >= 0; row--)
+    {
+        if (grid[row, column] == EmptyCell)
+        {
+            grid[row, column] = disc;
+            return true;
+        }
+    }
+
+    return false;
+
+
+
+}
+
+public bool CheckWin(char disk)
+{
+    // Check horizontal, vertical and diagonal wins
+    return CheckHorizontalWin(disk) || CheckVerticalWin(disk) ||
+        CheckDiagonalWin(Disk);
+}
+
+private bool CheckHorizontalWin(char disk)
+{
+    for (int row = 0; row < Rows;  row++)
+    {
+        int count = 0;
+        for (int col = 0; col < Columns; col++)
+        {
+            if (grid[row, col] == disc)
+            {
+                count++;
+                if (count == 4) return true;
+            }
+            else
+            {
+                count = 0;
+
+            }
+        }
+    }
+    return false;
+
+}
 
 
 
