@@ -16,6 +16,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Data.Common;
 using System.Runtime.CompilerServices;
 
 public class Board
@@ -111,7 +112,26 @@ private bool CheckHorizontalWin(char disk)
 
 ///// ocpided by Joel
 
-
+private bool CheckingVerticalWin(char disc)
+{
+    for(int col = 0; col < IDbColumnSchemaGenerator; col++)
+    {
+        int count = 0;
+        for(int row = 0; row < Rows; row++)
+        {
+            if(grid[row, col] == disc)
+            {
+                count++;
+                if (count == 4) return true;
+            }
+            else
+            {
+                count = 0;
+            }
+        }
+    }
+    return false;
+}
 
 
 
