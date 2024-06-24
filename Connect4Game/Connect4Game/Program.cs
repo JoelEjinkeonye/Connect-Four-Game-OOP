@@ -151,6 +151,11 @@ private bool CheckDiagonalWin(char disc)
 }
 
 
+private bool checkDiagonalRight(int row, int col, char disc)
+{
+    return grid[row, col] == disc && grid[row + 1, col] == disc &&
+        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+}
 
 
 
