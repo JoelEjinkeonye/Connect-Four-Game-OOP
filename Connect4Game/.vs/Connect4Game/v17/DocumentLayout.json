@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\",
+  "WorkspaceRootPath": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BEE7C474-1349-484B-A626-2DDA2320087D}|Connect4Game\\Connect4Game.csproj|c:\\users\\kinga\\source\\repos\\connect4gameproject\\connect-four-game-oop\\connect4game\\connect4game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BEE7C474-1349-484B-A626-2DDA2320087D}|Connect4Game\\Connect4Game.csproj|c:\\users\\joele\\onedrive\\documents\\joel special information\\github project\\connect-four-game-oop\\connect4game\\connect4game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BEE7C474-1349-484B-A626-2DDA2320087D}|Connect4Game\\Connect4Game.csproj|solutionrelative:connect4game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Program.cs",
               "RelativeDocumentMoniker": "Connect4Game\\Program.cs",
-              "ToolTip": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Program.cs",
+              "ToolTip": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Program.cs",
               "RelativeToolTip": "Connect4Game\\Program.cs",
-              "ViewState": "AQIAAIYAAAAAAAAAAAAAAIkAAAAAAAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAAAIMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T21:28:39.47Z",
               "EditorCaption": ""

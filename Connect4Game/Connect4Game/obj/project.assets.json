@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kinga\\.nuget\\packages\\": {}
+    "C:\\Users\\joele\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Connect4Game.csproj",
+      "projectUniqueName": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Connect4Game.csproj",
       "projectName": "Connect4Game",
-      "projectPath": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Connect4Game.csproj",
-      "packagesPath": "C:\\Users\\kinga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kinga\\source\\repos\\Connect4GameProject\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\obj\\",
+      "projectPath": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\Connect4Game.csproj",
+      "packagesPath": "C:\\Users\\joele\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\joele\\OneDrive\\Documents\\JOEL SPECIAL information\\GITHUB PROJECT\\Connect-Four-Game-OOP\\Connect4Game\\Connect4Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kinga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\joele\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

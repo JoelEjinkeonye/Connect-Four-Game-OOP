@@ -111,7 +111,26 @@ private bool CheckHorizontalWin(char disk)
 
 ///// ocpided by Joel
 
-
+public bool checkVerticalWin(Car disc)
+{
+    for (int col = 0; col < columns; col++)
+    {
+        int count = 0;
+        for (int row = 0; row < Rows; row++)
+        {
+            if (grid[row, col] == disc)
+            {
+                count++;
+                if(count == 4) return true;
+            }
+            else
+            {
+                count = 0;
+            }
+        }
+    }
+    return false;
+}
 
 
 
