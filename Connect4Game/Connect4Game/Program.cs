@@ -48,14 +48,14 @@ public class Board
 
         return false;
     }
-    public bool CheckWin(char disk)
+    public bool CheckWin(char disc)
     {
         // Check horizontal, vertical and diagonal wins
-        return CheckHorizontalWin(disk) || CheckVerticalWin(disk) || 
+        return CheckHorizontalWin(disc) || CheckVerticalWin(disc) || 
             CheckDiagonalWin(disc);
     }
 
-    private bool CheckHorizontalWin(char disk)
+    private bool CheckHorizontalWin(char disc)
     {
         for (int row = 0; row < Rows; row++)
         {
@@ -127,8 +127,11 @@ public class Board
         return grid[row, col] == disc && grid[row + 1, col] == disc &&
             grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
     }
-
-
+    public bool CheckDiagonalLeft(int row, int col, char disc)
+    {
+        return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
+            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;   
+    }
     public void print()
     {
         for (int i = 0; i < Rows; i++)
@@ -197,7 +200,7 @@ public class Game
     {
         while (true)
         {
-            board.Print();
+            board.print();
             int column = currentPlayer.GetMove();
 
             if (!board.InsertDisc(column, currentPlayer.Disc))
@@ -208,7 +211,7 @@ public class Game
 
             if (board.CheckWin(currentPlayer.Disc))
             {
-                board.Print();
+                board.print();
                 Console.WriteLine($"{currentPlayer.Name} wins!");
                 break;
             }
