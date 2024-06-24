@@ -14,11 +14,6 @@
 
 ///// ocpided by Matias
 
-using System;
-using System.ComponentModel;
-using System.Data.Common;
-using System.Runtime.CompilerServices;
-
 public class Board
 {
     private char[,] grid;
@@ -37,137 +32,117 @@ public class Board
         }
     }
 
-}
-
-public bool InsertDisc(int column, char disc)
-{
-    if (column < 0 || column >= Columns)
-        throw new ArgumentOutOfRangeException(nameof(column));
-
-    for (int row = Rows - 1; row >= 0; row--)
+    public bool InsertDisc(int column, char disc)
     {
-        if (grid[row, column] == EmptyCell)
+        if (column < 0 || column >= Columns)
+            throw new ArgumentOutOfRangeException(nameof(column));
+
+        for (int row = Rows - 1; row >= 0; row--)
         {
-            grid[row, column] = disc;
-            return true;
+            if (grid[row, column] == EmptyCell)
+            {
+                grid[row, column] = disc;
+                return true;
+            }
         }
+
+        return false;
+    }
+    public bool CheckWin(char disk)
+    {
+        // Check horizontal, vertical and diagonal wins
+        return CheckHorizontalWin(disk) || CheckVerticalWin(disk) || 
+            CheckDiagonalWin(disc);
     }
 
-    return false;
-
-
-
-}
-
-public bool CheckWin(char disk)
-{
-    // Check horizontal, vertical and diagonal wins
-    return CheckHorizontalWin(disk) || CheckVerticalWin(disk) ||
-        CheckDiagonalWin(Disk);
-}
-
-private bool CheckHorizontalWin(char disk)
-{
-    for (int row = 0; row < Rows;  row++)
+    private bool CheckHorizontalWin(char disk)
     {
-        int count = 0;
+        for (int row = 0; row < Rows; row++)
+        {
+            int count = 0;
+            for (int col = 0; col < Columns; col++)
+            {
+                if (grid[row, col] == disc)
+                {
+                    count++;
+                    if (count == 4) return true;
+                }
+                else
+                {
+                    count = 0;
+
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+    ///// ocpided by Joel
+
+    private bool CheckVerticalWin(char disc)
+    {
         for (int col = 0; col < Columns; col++)
         {
-            if (grid[row, col] == disc)
+            int count = 0;
+            for (int row = 0; row < Rows; row++)
             {
-                count++;
-                if (count == 4) return true;
-            }
-            else
-            {
-                count = 0;
-
+                if (grid[row, col] == disc)
+                {
+                    count++;
+                    if (count == 4) return true;
+                }
+                else
+                {
+                    count = 0;
+                }
             }
         }
+        return false;
     }
-    return false;
-
-}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///// ocpided by Joel
-
-private bool CheckVerticalWin(char disc)
-{
-    for(int col = 0; col < Columns; col++)
+    private bool CheckDiagonalWin(char disc)
     {
-        int count = 0;
-        for(int row = 0; row < Rows; row++)
+        
+        for (int row = 0; row < Rows - 3; row++)
         {
-            if(grid[row, col] == disc)
+            for (int col = 0; col < Columns; col++)
             {
-                count++;
-                if (count == 4) return true;
-            }
-            else
-            {
-                count = 0;
+                if (col <= Columns - 4 && CheckDiagonalRight(row, col, disc))
+                    return true;
+                if (col >= 3 && CheckDiagonalLeft(row, col, disc))
+                    return true;
             }
         }
+        return false;
     }
-    return false;
-}
 
-
-private bool CheckDiagonalWin(char disc)
-{
-    // to check foir the both directions of the Diagonal
-    for (int row = 0; row < Rows - 3; row++)
+    private bool CheckDiagonalRight(int row, int col, char disc)
     {
-        for (int col = 0; col < columns; col++)
-        {
-            if (col <= Columns - 4 && checkingDiagonalRight(row, col, disc))
-                return true;
-            if (col >= 3 && checkingDiagonalLeft(row, col, disc))
-                return true;
-        }
+        return grid[row, col] == disc && grid[row + 1, col] == disc &&
+            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
     }
-    return false;
+
+
+    public void print()
+    {
+        for (int i = 0; i < Rows; i++)
+        {
+            for (int j = 0; j < Columns; j++)
+            {
+                Console.Write(grid[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+
 }
-
-
-private bool checkDiagonalRight(int row, int col, char disc)
-{
-    return grid[row, col] == disc && grid[row + 1, col] == disc &&
-        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
