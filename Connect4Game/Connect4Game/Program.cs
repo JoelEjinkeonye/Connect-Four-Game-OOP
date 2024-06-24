@@ -112,9 +112,9 @@ private bool CheckHorizontalWin(char disk)
 
 ///// ocpided by Joel
 
-private bool CheckingVerticalWin(char disc)
+private bool CheckVerticalWin(char disc)
 {
-    for(int col = 0; col < IDbColumnSchemaGenerator; col++)
+    for(int col = 0; col < Columns; col++)
     {
         int count = 0;
         for(int row = 0; row < Rows; row++)
@@ -128,6 +128,23 @@ private bool CheckingVerticalWin(char disc)
             {
                 count = 0;
             }
+        }
+    }
+    return false;
+}
+
+
+private bool CheckDiagonalWin(char disc)
+{
+    // to check foir the both directions of the Diagonal
+    for (int row = 0; row < Rows - 3; row++)
+    {
+        for (int col = 0; col < columns; col++)
+        {
+            if (col <= Columns - 4 && checkingDiagonalRight(row, col, disc))
+                return true;
+            if (col >= 3 && checkingDiagonalLeft(row, col, disc))
+                return true;
         }
     }
     return false;
