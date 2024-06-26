@@ -122,16 +122,40 @@ public class Board
         return false;
     }
 
+    //private bool CheckDiagonalRight(int row, int col, char disc)
+    //{
+    //    return grid[row, col] == disc && grid[row + 1, col] == disc &&                  // The code " CheckDiagonalRight " had an Error so i changed the code 
+    //        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;          //  and i aslo had to implement the code with <{> " CheckDiagonalLeft " <}>
+    //}
     private bool CheckDiagonalRight(int row, int col, char disc)
     {
-        return grid[row, col] == disc && grid[row + 1, col] == disc &&
-            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+        // Check if the indices are within bounds
+        if (row + 3 < Rows && col - 3 >= 0)
+        {
+            return grid[row, col] == disc && grid[row + 1, col] == disc &&
+                   grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+        }
+        return false;>
     }
+
+
+
+
+    //public bool CheckDiagonalLeft(int row, int col, char disc)   
+    //{
+    //    return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
+    //        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;   
+    //}
     public bool CheckDiagonalLeft(int row, int col, char disc)
-    {
-        return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
-            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;   
+        // Check if the indices are within bounds
+        if (row + 3 < Rows && col - 3 >= 0)
+        {
+            return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
+                   grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+        }
+        return false;
     }
+
     public void print()
     {
         for (int i = 0; i < Rows; i++)
