@@ -214,7 +214,7 @@ public class Game
 {
     while (true)
     {
-        board.Print();
+        board.print();
         int column = currentPlayer.GetMove();
 
         if (!board.InsertDisc(column, currentPlayer.Disc))
@@ -225,14 +225,14 @@ public class Game
 
         if (board.CheckWin(currentPlayer.Disc))
         {
-            board.Print();
+            board.print();
             Console.WriteLine($"{currentPlayer.Name} wins!");
             break;
         }
 
         if (board.IsFull())
         {
-            board.Print();
+            board.print();
             Console.WriteLine("The game is a draw!");
             break;
         }
