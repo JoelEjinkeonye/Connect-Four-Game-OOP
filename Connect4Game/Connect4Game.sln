@@ -1,25 +1,249 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34902.65
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect4Game", "Connect4Game\Connect4Game.csproj", "{BEE7C474-1349-484B-A626-2DDA2320087D}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BEE7C474-1349-484B-A626-2DDA2320087D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEE7C474-1349-484B-A626-2DDA2320087D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEE7C474-1349-484B-A626-2DDA2320087D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEE7C474-1349-484B-A626-2DDA2320087D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3EDE915E-6424-4BD7-86CD-B5EF24B87B67}
-	EndGlobalSection
-EndGlobal
+﻿public class Board
+{
+    private char[,] grid;
+    private const int Rows = 6;
+    private const int Columns = 7;
+    private const char EmptyCell = '#';
+
+    public Board()
+    {
+        grid = new char[Rows, Columns];
+        for (int i = 0; i < Rows; i++)
+        {
+            for (int j = 0; j < Columns; j++)
+            {
+                grid[i, j] = EmptyCell;
+            }
+        }
+    }
+
+    public bool InsertDisc(int column, char disc)
+    {
+        if (column < 0 || column >= Columns)
+            throw new ArgumentOutOfRangeException(nameof(column));
+
+        for (int row = Rows - 1; row >= 0; row--)
+        {
+            if (grid[row, column] == EmptyCell)
+            {
+                grid[row, column] = disc;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public bool CheckWin(char disc)
+    {
+        // Check horizontal, vertical and diagonal wins
+        return CheckHorizontalWin(disc) || CheckVerticalWin(disc) ||
+            CheckDiagonalWin(disc);
+    }
+
+    private bool CheckHorizontalWin(char disc)
+    {
+        for (int row = 0; row < Rows; row++)
+        {
+            int count = 0;
+            for (int col = 0; col < Columns; col++)
+            {
+                if (grid[row, col] == disc)
+                {
+                    count++;
+                    if (count == 4) return true;
+                }
+                else
+                {
+                    count = 0;
+
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+    ///// ocpided by Joel
+
+    private bool CheckVerticalWin(char disc)
+    {
+        for (int col = 0; col < Columns; col++)
+        {
+            int count = 0;
+            for (int row = 0; row < Rows; row++)
+            {
+                if (grid[row, col] == disc)
+                {
+                    count++;
+                    if (count == 4) return true;
+                }
+                else
+                {
+                    count = 0;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    private bool CheckDiagonalWin(char disc)
+    {
+
+        for (int row = 0; row < Rows - 3; row++)
+        {
+            for (int col = 0; col < Columns; col++)
+            {
+                if (col <= Columns - 4 && CheckDiagonalRight(row, col, disc))
+                    return true;
+                if (col >= 3 && CheckDiagonalLeft(row, col, disc))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private bool CheckDiagonalRight(int row, int col, char disc)
+    {
+        return grid[row, col] == disc && grid[row + 1, col] == disc &&
+            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+    }
+    public bool CheckDiagonalLeft(int row, int col, char disc)
+    {
+        return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
+            grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+    }
+//matias add this public bool to check the draw
+    public bool IsFull()
+    {
+        for (int col = 0; col < Columns; col++)
+        {
+            if (grid[0, col] == EmptyCell)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+    public void print()
+    {
+        for (int i = 0; i < Rows; i++)
+        {
+            for (int j = 0; j < Columns; j++)
+            {
+                Console.Write(grid[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+
+}
+
+
+
+
+
+
+///// ocpided by Ali
+
+public abstract class Player
+{
+    public string Name { get; private set; }
+    public char Disc { get; private set; }
+
+    protected Player(string name, char disc)
+    {
+        Name = name;
+        Disc = disc;
+    }
+
+    public abstract int GetMove();
+}
+
+
+public class HumanPlayer : Player
+{
+    public HumanPlayer(string name, char disc) : base(name, disc) { }
+
+    public override int GetMove()
+    {
+        Console.Write($"{Name}, enter your move (1-7): ");
+        return int.Parse(Console.ReadLine()) - 1;
+    }
+}
+
+public class Game
+{
+    private Board board;
+    private Player player1;
+    private Player player2;
+    private Player currentPlayer;
+
+    public Game()
+    {
+        board = new Board();
+        player1 = new HumanPlayer("Player 1", 'X');
+        player2 = new HumanPlayer("Player 2", 'O');
+        currentPlayer = player1;
+    }
+
+
+    public void Play()
+    {
+        while (true)
+        {
+            board.print();
+            int column = currentPlayer.GetMove();
+
+            if (!board.InsertDisc(column, currentPlayer.Disc))
+            {
+                Console.WriteLine("Column full. Try another column.");
+                continue;
+            }
+
+            if (board.CheckWin(currentPlayer.Disc))
+            {
+                board.print();
+                Console.WriteLine($"{currentPlayer.Name} wins!");
+                break;
+            }
+//matias add option for draw case.
+            if (board.IsFull())
+            {
+                board.print();
+                Console.WriteLine("The game is a draw!");
+                break;
+            }
+
+
+
+
+
+
+
+
+
+
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
+        }
+    }
+
+    public static void Main()
+    {
+        Game game = new Game();
+        game.Play();
+    }
+}
