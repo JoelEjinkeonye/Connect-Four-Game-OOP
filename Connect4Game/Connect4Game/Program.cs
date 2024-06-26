@@ -122,39 +122,29 @@ public class Board
         return false;
     }
 
-    //private bool CheckDiagonalRight(int row, int col, char disc)
-    //{
-    //    return grid[row, col] == disc && grid[row + 1, col] == disc &&                  // The code " CheckDiagonalRight " had an Error so i changed the code 
-    //        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;          //  and i aslo had to implement the code with <{> " CheckDiagonalLeft " <}>
-    //}
     private bool CheckDiagonalRight(int row, int col, char disc)
+{
+    return grid[row, col] == disc && grid[row + 1, col + 1] == disc &&
+           grid[row + 2, col + 2] == disc && grid[row + 3, col + 3] == disc;
+}
+
+private bool CheckDiagonalLeft(int row, int col, char disc)
+{
+    return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
+           grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+}
+
+public bool IsFull()
+{
+    for (int col = 0; col < Columns; col++)
     {
-        // Check if the indices are within bounds
-        if (row + 3 < Rows && col - 3 >= 0)
+        if (grid[0, col] == EmptyCell)
         {
-            return grid[row, col] == disc && grid[row + 1, col] == disc &&
-                   grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
+            return false;
         }
-        return false;>
     }
-
-
-
-
-    //public bool CheckDiagonalLeft(int row, int col, char disc)   
-    //{
-    //    return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
-    //        grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;   
-    //}
-    public bool CheckDiagonalLeft(int row, int col, char disc)
-        // Check if the indices are within bounds
-        if (row + 3 < Rows && col - 3 >= 0)
-        {
-            return grid[row, col] == disc && grid[row + 1, col - 1] == disc &&
-                   grid[row + 2, col - 2] == disc && grid[row + 3, col - 3] == disc;
-        }
-        return false;
-    }
+    return true;
+}
 
     public void print()
     {
@@ -221,29 +211,35 @@ public class Game
 
     
     public void Play()
+{
+    while (true)
     {
-        while (true)
+        board.Print();
+        int column = currentPlayer.GetMove();
+
+        if (!board.InsertDisc(column, currentPlayer.Disc))
         {
-            board.print();
-            int column = currentPlayer.GetMove();
-
-            if (!board.InsertDisc(column, currentPlayer.Disc))
-            {
-                Console.WriteLine("Column full. Try another column.");
-                continue;
-            }
-
-            if (board.CheckWin(currentPlayer.Disc))
-            {
-                board.print();
-                Console.WriteLine($"{currentPlayer.Name} wins!");
-                break;
-            }
-
-            currentPlayer = currentPlayer == player1 ? player2 : player1;
+            Console.WriteLine("Column full. Try another column.");
+            continue;
         }
-    }
 
+        if (board.CheckWin(currentPlayer.Disc))
+        {
+            board.Print();
+            Console.WriteLine($"{currentPlayer.Name} wins!");
+            break;
+        }
+
+        if (board.IsFull())
+        {
+            board.Print();
+            Console.WriteLine("The game is a draw!");
+            break;
+        }
+
+        currentPlayer = currentPlayer == player1 ? player2 : player1;
+    }
+}
     public static void Main()
     {
         Game game = new Game();
