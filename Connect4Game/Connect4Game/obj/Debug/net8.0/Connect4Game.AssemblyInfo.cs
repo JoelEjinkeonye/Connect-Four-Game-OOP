@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Connect4Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f849d2af9c72790e381801bb90affe3e872f0248")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c96837802213ef45687951e1144b956076319ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("Connect4Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Connect4Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
